@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -33,9 +34,28 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding=true
+    }
+
+
 }
 
 dependencies {
+
+    val room_version:String="2.3.0"
+    val activity_version:String="1.3.1"
+
+    //room and lifecycle dependencies
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    //coroutine support
+    implementation("androidx.room:room-ktx: $room_version")
+    implementation("androidx.activity:activity-ktx:$activity_version")
+
+
+
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
