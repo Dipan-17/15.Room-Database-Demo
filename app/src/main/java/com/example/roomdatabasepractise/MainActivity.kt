@@ -16,13 +16,15 @@ class MainActivity : AppCompatActivity() {
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
+        val employeeDAO=(application as EmployeeApp).db.employeeDao()
+
         binding?.btnAdd?.setOnClickListener {
-            //TODO call add record with employeeDAO
+            addRecord(employeeDAO)
         }
 
     }
 
-    fun addRecord(employeeDAO: EmployeeDAO){
+    private fun addRecord(employeeDAO: EmployeeDAO){
         val name=binding?.etName?.text.toString()
         val email=binding?.etEmailId?.text.toString()
         if(name.isNotEmpty() && email.isNotEmpty()){
