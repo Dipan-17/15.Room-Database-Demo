@@ -16,6 +16,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -48,11 +49,11 @@ dependencies {
     val activity_version:String="1.3.1"
 
     //room and lifecycle dependencies
-    implementation("androidx.room:room-runtime:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
     //coroutine support
     implementation("androidx.room:room-ktx: $room_version")
-    implementation("androidx.activity:activity-ktx:$activity_version")
+    implementation("androidx.activity:activity-ktx:1.9.0")
 
 
 
