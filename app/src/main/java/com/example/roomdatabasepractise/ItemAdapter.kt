@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.roomdatabasepractise.databinding.ItemsRowBinding
 
 class ItemAdapter(private val items:ArrayList<EmployeeEntity>,//list of items
-   // private val updateListener:(id:Int)->Unit, //update button on recycler view listener
-  //  private val deleteListener:(id:Int)->Unit //delete button on rv listener
+    private val updateListener:(id:Int)->Unit, //update button on recycler view listener
+    private val deleteListener:(id:Int)->Unit //delete button on rv listener
 
 
 ):RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
@@ -45,10 +45,10 @@ class ItemAdapter(private val items:ArrayList<EmployeeEntity>,//list of items
 
         //handle the onclicklistener
         holder.ivEdit.setOnClickListener {
-            //updateListener.invoke(item.id)
+            updateListener.invoke(item.id)
         }
         holder.ivDelete.setOnClickListener {
-            //deleteListener.invoke(item.id)
+            deleteListener.invoke(item.id)
         }
     }
 }
